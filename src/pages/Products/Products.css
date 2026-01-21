@@ -19,7 +19,7 @@
 
 .products-hero p {
   font-size: 1.3rem;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .products-filters {
@@ -258,7 +258,7 @@
 .product-footer .btn:disabled {
   background: var(--color-gray);
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .product-footer .btn:disabled:hover {
@@ -297,3 +297,70 @@
     align-items: center;
   }
 }
+
+/* Effets viticoles pour la page produits */
+.products-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.products-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+  animation: wineShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Effet de grappes sur les cartes produits */
+.product-card {
+  position: relative;
+}
+
+.product-card::after {
+  content: '🍇';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 4rem;
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform: rotate(15deg);
+}
+
+.product-card:hover::after {
+  opacity: 0.15;
+  top: -10px;
+  right: -10px;
+  transform: rotate(25deg) scale(1.1);
+}
+
+/* Amélioration de l'image produit avec reflet de vin */
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(201, 169, 97, 0.3), 
+    transparent);
+  transform: skewX(-20deg);
+  transition: left 0.8s ease;
+}
+
+.product-card:hover .product-image::after {
+  left: 150%;
+}
+

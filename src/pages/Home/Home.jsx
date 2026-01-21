@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
+import WineBottle3DBackground from '../../components/WineBottle3D/WineBottle3D'
 import './Home.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -89,6 +90,7 @@ const Home = () => {
       {/* Hero Section */}
       <section ref={heroRef} className="hero">
         <div ref={parallaxRef} className="hero-background">
+          {/* Bouteilles CSS en fallback */}
           <div className="floating-bottle bottle-1"></div>
           <div className="floating-bottle bottle-2"></div>
           <div className="floating-bottle bottle-3"></div>
@@ -140,6 +142,8 @@ const Home = () => {
             </div>
             <div className="heritage-image">
               <div className="image-container">
+                {/* Modèle 3D interactif de bouteille */}
+                <WineBottle3DBackground modelPath="/models/wine-bottle.glb" />
                 <div className="image-overlay"></div>
               </div>
             </div>

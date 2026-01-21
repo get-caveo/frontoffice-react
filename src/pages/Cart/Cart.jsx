@@ -25,7 +25,6 @@ const Cart = () => {
     // Animation au chargement
     gsap.from('.cart-item', {
       x: -50,
-      opacity: 0,
       duration: 0.6,
       stagger: 0.1,
       ease: 'power3.out'
@@ -33,7 +32,6 @@ const Cart = () => {
 
     gsap.from('.cart-summary', {
       x: 50,
-      opacity: 0,
       duration: 0.6,
       ease: 'power3.out'
     })
@@ -63,7 +61,6 @@ const Cart = () => {
     
     gsap.to(itemElement, {
       x: -100,
-      opacity: 0,
       duration: 0.4,
       ease: 'power2.in',
       onComplete: () => {
