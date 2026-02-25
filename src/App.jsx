@@ -4,6 +4,10 @@ import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 import Products from './pages/Products/Products'
 import Cart from './pages/Cart/Cart'
+import Orders from './pages/Orders/Orders'
+import Profile from './pages/Profile/Profile'
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService/TermsOfService'
 import './App.css'
@@ -18,6 +22,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
           </Routes>

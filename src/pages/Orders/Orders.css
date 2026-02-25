@@ -1,0 +1,462 @@
+.orders-page {
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+/* Hero Section - même style que la page d'accueil */
+.orders-hero {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: white;
+  padding: 100px 0 3.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.orders-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.orders-hero p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  font-family: var(--font-body);
+}
+
+/* Loading */
+.orders-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0;
+  gap: 1.5rem;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-gray);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.orders-loading p {
+  color: var(--color-dark-gray);
+  font-size: 1.1rem;
+}
+
+/* Error */
+.orders-error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #dc2626;
+}
+
+/* Empty State */
+.empty-orders {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.empty-orders-icon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  filter: grayscale(0.3);
+}
+
+.empty-orders h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-primary);
+}
+
+.empty-orders p {
+  font-size: 1.1rem;
+  color: var(--color-dark-gray);
+  margin-bottom: 2rem;
+}
+
+/* Orders List */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+  opacity: 1 !important;
+}
+
+.order-card:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+}
+
+.order-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  gap: 2rem;
+}
+
+.order-card-header:hover {
+  background: rgba(139, 111, 71, 0.03);
+}
+
+.order-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.order-number {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.order-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-dark-gray);
+  font-weight: 500;
+}
+
+.order-ref {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.order-date {
+  font-size: 0.9rem;
+  color: var(--color-dark-gray);
+}
+
+.order-status-price {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.order-status-badge {
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1.5px solid;
+  white-space: nowrap;
+}
+
+.order-total {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.expand-icon {
+  color: var(--color-dark-gray);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.expand-icon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Order Details */
+.order-card-details {
+  padding: 0 2rem 2rem;
+  border-top: 1px solid var(--color-gray);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Progress Bar */
+.order-progress {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.order-progress::before {
+  content: '';
+  position: absolute;
+  top: calc(2rem + 16px);
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  background: var(--color-gray);
+  z-index: 0;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-gray);
+  color: var(--color-dark-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress-step.completed .step-dot {
+  background: var(--color-accent);
+  color: white;
+}
+
+.progress-step.current .step-dot {
+  background: var(--color-gold);
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
+}
+
+.progress-step.cancelled .step-dot {
+  background: #fecaca;
+  color: #ef4444;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-dark-gray);
+  font-weight: 500;
+  text-align: center;
+}
+
+.progress-step.completed .step-label,
+.progress-step.current .step-label {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Order Items */
+.order-items {
+  padding: 1.5rem 0;
+}
+
+.order-items h3 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.order-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-name {
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.order-item-cond {
+  font-size: 0.85rem;
+  color: var(--color-dark-gray);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.order-item-qty {
+  color: var(--color-dark-gray);
+  font-weight: 500;
+}
+
+.order-item-price {
+  color: var(--color-dark-gray);
+  font-size: 0.95rem;
+}
+
+.order-item-total {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+/* Financial Summary */
+.order-financial {
+  background: var(--color-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.financial-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  color: var(--color-dark-gray);
+}
+
+.financial-line.total {
+  border-top: 2px solid var(--color-gray);
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+.financial-line.total span:last-child {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+/* Actions */
+.order-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-gray);
+}
+
+.btn-outline-danger {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #ef4444;
+  color: #ef4444;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-outline-danger:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Order Notes */
+.order-notes {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background: #fefce8;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--color-dark-gray);
+  border-left: 3px solid var(--color-gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .order-status-price {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .expand-icon {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+
+  .order-card-header {
+    position: relative;
+  }
+
+  .order-progress {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .order-progress::before {
+    display: none;
+  }
+
+  .progress-step {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .order-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .order-actions {
+    flex-direction: column;
+  }
+
+  .order-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
